@@ -6,8 +6,8 @@ class BookModel(db.Model):
     id = db.Column(db.String(40), primary_key=True)
     title = db.Column(db.String(80), nullable=False)
     subtitle = db.Column(db.String(80))
-    authors = db.Relationship('Author', backref='book', lazy='dynamic')
-    image_links = db.Relationship('Image', backref='book', lazy='dynamic')
+    authors = db.relationship('Author', backref='book', lazy='dynamic')
+    #image_links = db.relationship('Image', backref='book', lazy='dynamic')
     shelf = db.Column(db.String(40))
 
     def __init__(self, name):
@@ -18,7 +18,7 @@ class BookModel(db.Model):
             'title': self.title,
             'subtitle': self.subtitle,
             'authors': self.authors,
-            'imageLinks': self.image_links,
+            #'imageLinks': self.image_links,
             'shelf': self.shelf
         }
 
